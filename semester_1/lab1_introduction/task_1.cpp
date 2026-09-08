@@ -1,6 +1,17 @@
-﻿Сборка начата в 20:46...
-1>------ Сборка начата: проект: task_1, Конфигурация: Debug x64 ------
-1>  task_1.cpp
-1>  task_1.vcxproj -> C:\Users\elena\source\repos\task_1\x64\Debug\task_1.exe
-========== Сборка: успешно выполнено — 1 , со сбоем — 0, в актуальном состоянии — 0, пропущено — 0 ==========
-========== Сборка завершено в 20:46 и заняло 01,383 с ==========
+﻿#include <iostream>
+int main() {
+	setlocale(LC_ALL, "RU");
+	int n, m;
+	std::cout << "Введите два натуральных числа: ";
+	std::cin >> n >> m;
+	std::cout << "Общие делители чисел " << n << " и " << m << " : ";
+	for (int i = 1; i <= std::min(n, m); i++) {
+		if (n % i == 0 && m % i == 0) {
+			std::cout << i << " ";
+		}
+	}
+	std::cout <<std:: endl;
+
+
+	return 0;
+}
