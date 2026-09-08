@@ -1,6 +1,30 @@
-﻿Сборка начата в 06:40...
-1>------ Сборка начата: проект: task__6, Конфигурация: Debug x64 ------
-1>  task__6.cpp
-1>  task__6.vcxproj -> C:\Users\elena\source\repos\task__6\x64\Debug\task__6.exe
-========== Сборка: успешно выполнено — 1 , со сбоем — 0, в актуальном состоянии — 0, пропущено — 0 ==========
-========== Сборка завершено в 06:40 и заняло 01,335 с ==========
+﻿#include <iostream>
+int main() {
+    setlocale(LC_ALL, "RU");
+    int a, b, d;
+    std::cout << "Введите a (первый член), b (последний член), d (разность): ";
+    std::cin >> a >> b >> d;
+    if (d == 0) {
+        std::cout << "Разность не может быть равна 0" << std::endl;
+        return 1;
+    }
+    int step = (d > 0) ? 1 : -1;
+    int current = a;
+
+    std::cout << "Члены прогрессии, кратные 3 и лежащие на отрезке [" << a << ", " << b << "]:" << std::endl;
+    bool found = false;
+    while ((step == 1 && current <= b) || (step == -1 && current >= b)) {
+        if (current % 3 == 0) {
+            std::cout << current << " ";
+            found = true;
+        }
+        current += d;
+    }
+
+    if (!found) {
+        std::cout << "Нет таких членов";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
