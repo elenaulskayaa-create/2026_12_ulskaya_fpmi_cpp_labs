@@ -1,7 +1,24 @@
-﻿Сборка начата в 06:29...
-1>------ Сборка начата: проект: task__5, Конфигурация: Debug x64 ------
-1>  task__5.cpp
-1>C:\Users\elena\source\repos\task__5\task__5\task__5.cpp(1,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-1>  task__5.vcxproj -> C:\Users\elena\source\repos\task__5\x64\Debug\task__5.exe
-========== Сборка: успешно выполнено — 1 , со сбоем — 0, в актуальном состоянии — 0, пропущено — 0 ==========
-========== Сборка завершено в 06:29 и заняло 02,388 с ==========
+﻿#include <iostream>;
+
+int main() {
+    setlocale(LC_ALL, "RU");
+    int n;
+    std::cout << "Введите количество чисел Фибоначчи: ";
+    std::cin >> n;
+
+    if (n <= 0) {
+        std::cout << "Число должно быть больше 0" << std::endl;
+        return 0;
+    }
+
+    long long f0 = 0, f1 = 1;
+    for (int i = 0; i < n; i++) {
+        std::cout << f0 << " ";
+        long long next = f0 + f1;
+        f0 = f1;
+        f1 = next;
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
